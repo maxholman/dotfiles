@@ -1,0 +1,49 @@
+/* colors */
+#define bg   #222222
+#define fg   #ebdbb2
+#define blk  #282828
+#define bblk #928374
+#define dred #cc241d
+#define red  #fb4934
+#define dgrn #98971a
+#define grn  #b8bb26
+#define dylw #d79921
+#define ylw  #fabd2f
+#define dblu #458588
+#define blu  #83a598
+#define dmag #b16286
+#define mag  #d3869b
+#define dcyn #689d6a
+#define cyn  #8ec07c
+#define dwht #a89984
+#define wht  #ebdbb2
+
+rXautolock.time: 30
+rXautolock.locker: $HOME/.dotfiles/i3/autolock.sh lock
+rXautolock.killtime: 30
+rXautolock.killer: $HOME/.dotfiles/i3/autolock.sh suspend
+rXautolock.notify: 30
+rXautolock.notifier: $HOME/.dotfiles/i3/autolock.sh notify
+rXautolock.detectsleep: true
+rXautolock.secure: true
+rXautolock.noclose: true
+
+/* rofi */
+rofi.font:            Arial 24
+rofi.terminal:        termite
+rofi.columns:         1
+rofi.eh:              1
+rofi.padding:         400
+rofi.fullscreen:      true
+rofi.opacity:         75
+rofi.bw:              0
+rofi.sidebar-mode:    false
+rofi.separator-style: none
+rofi.hide-scrollbar:  true
+rofi.color-enabled:   true
+rofi.line-margin:     5
+
+rofi.color-normal: bg, fg, bg, bg, ylw
+rofi.color-urgent: bg, fg, bg, bg, ylw
+rofi.color-active: bg, fg, bg, bg, ylw
+rofi.color-window: bg, bblk, bblk

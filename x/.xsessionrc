@@ -1,0 +1,2 @@
+xset r rate 300 35 # Set initial delay 300ms, repeat 35ms
+setxkbmap -option 'caps:escape'

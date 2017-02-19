@@ -1,0 +1,36 @@
+Host github.com
+  HostName github.com
+  User git
+  PreferredAuthentications publickey
+  IdentitiesOnly true
+  IdentityFile ~/.ssh/github
+
+Host bitbucket.org
+  HostName bitbucket.org
+  User git
+  IdentitiesOnly true
+  PreferredAuthentications publickey
+  IdentityFile ~/.ssh/bitbucket
+  # bitbucket doesnt like this
+  ControlPath none
+
+Host github.com
+    ControlMaster auto
+    ControlPersist 120
+
+Host *
+    # Always use SSH2.
+    Protocol 2
+
+    # Use a shared channel for all sessions to the same host,
+    # instead of always opening a new one. This leads to much
+    # quicker connection times.
+    ControlMaster auto
+    ControlPath ~/.ssh/control/%C
+    ControlPersist 1800
+
+    # also this stuff
+    Compression yes
+    TCPKeepAlive yes
+    ServerAliveInterval 20
+    ServerAliveCountMax 10

@@ -1,0 +1,19 @@
+[user]
+name = Max Holman
+email = max@holmn.com
+
+[github]
+user = maxholman
+
+[core]
+excludesfile = ~/.dotfiles/git/.gitignore_global
+editor = vim
+
+[alias]
+st = status
+
+[color]
+ui = auto
+
+[push]
+default = simple

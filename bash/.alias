@@ -1,0 +1,2 @@
+alias docker="sudo /usr/bin/docker"
+alias docker-compose="sudo /usr/local/bin/docker-compose"
