@@ -1,1 +1,5 @@
-tmp
+.idea
+.yarnrc
+.vim/.netrwhist
+ARCHIVE
+.config/gtk-3.0/bookmarks

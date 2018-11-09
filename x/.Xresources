@@ -29,9 +29,9 @@ rXautolock.secure: true
 rXautolock.noclose: true
 
 /* rofi */
-rofi.font:            Arial 24
-rofi.terminal:        termite
-rofi.columns:         1
+rofi.font:            Noto Sans  24
+rofi.terminal:        urxvt
+rofi.columns:         3
 rofi.eh:              1
 rofi.padding:         400
 rofi.fullscreen:      true
@@ -43,7 +43,94 @@ rofi.hide-scrollbar:  true
 rofi.color-enabled:   true
 rofi.line-margin:     5
 
-rofi.color-normal: bg, fg, bg, bg, ylw
-rofi.color-urgent: bg, fg, bg, bg, ylw
-rofi.color-active: bg, fg, bg, bg, ylw
-rofi.color-window: bg, bblk, bblk
+!                  bg, border, separator
+rofi.color-window: #88000000, #00000000, #00000000
+
+! bg, fg, bg-alt, hl-bg, hl-fg
+rofi.color-normal: #00000000, #ffffff, #00000000, #00000000, #6d9df1
+
+
+! do not scroll with output
+URxvt*scrollTtyOutput: false
+
+! default letter spacing is too big
+URxvt.letterSpace: -1
+
+
+! scroll in relation to buffer (with mouse scroll or Shift+Page Up)
+URxvt*scrollWithBuffer: true
+
+! scroll back to the bottom on keypress
+URxvt*scrollTtyKeypress: true
+
+! Disable printing the terminal contents when pressing PrintScreen.
+URxvt.print-pipe: "cat > /dev/null"
+
+URxvt.url-launcher: /usr/bin/xdg-open
+URxvt.matcher.button: 1
+
+URxvt.matcher.rend.0: Uline Bold fg5
+
+URxvt*font: xft:Noto Sans Mono:size=11,xft:Noto Emoji:size=11
+URxvt.allow_bold: true
+
+URxvt.perl-ext-common: default,matcher,selection-to-clipboard,font-size
+URxvt.scrollBar: false
+
+URxvt.cutchars: "\"(),<>[]{}|'`"
+
+!Disables Ctrl+Shift shortcut for ISO14755
+URxvt.iso14755: false
+
+URxvt.keysym.C-Up:    \033[1;5A
+URxvt.keysym.C-Down:  \033[1;5B
+URxvt.keysym.C-Left:  \033[1;5D
+URxvt.keysym.C-Right: \033[1;5C
+
+!
+! Generated with :
+! XRDB2Xreources.py
+!
+*.foreground:  #adadad
+*.background:  #202020
+*.cursorColor: #ffffff
+!
+! Black
+*.color0:      #000000
+*.color8:      #555555
+!
+! Red
+*.color1:      #fa5355
+*.color9:      #fb7172
+!
+! Green
+*.color2:      #126e00
+*.color10:     #67ff4f
+!
+! Yellow
+*.color3:      #c2c300
+*.color11:     #ffff00
+!
+! Blue
+*.color4:      #4581eb
+*.color12:     #6d9df1
+!
+! Magenta
+*.color5:      #fa54ff
+*.color13:     #fb82ff
+!
+! Cyan
+*.color6:      #33c2c1
+*.color14:     #60d3d1
+!
+! White
+*.color7:      #adadad
+*.color15:     #eeeeee
+!
+! Bold, Italic, Underline
+*.colorBD:     #eeeeee
+!*.colorIT:
+!*.colorUL:
+
+
+Xft.dpi: 96

@@ -2,7 +2,7 @@
 
 set -eu
 
-LOCK_LOG=/tmp/lock.log
+logfile=~/autolock.log
 
 pushd `dirname $0` > /dev/null
 
@@ -21,8 +21,8 @@ suspend_ok() {
 info() { printf '%s\t%s\n' "$(date)" "$*"; }
 
 log() {
-  if [ -n "${LOCK_LOG:-}" ]; then
-    info >>"$LOCK_LOG" "$@"
+  if [ -n "${logfile:-}" ]; then
+    info >>"$logfile" "$@"
   else
     info "$@"
   fi
@@ -54,7 +54,7 @@ case "$cmd" in
 
     # Fork both i3lock and its monitor to avoid blocking xautolock.
     #i3lock --ignore-empty-password --beep --inactivity-timeout=10 --image="$XDG_CONFIG_HOME/i3/i3lock-img" --nofork &
-    ./lock.sh
+    lock.sh
 
     pid=$(pidof i3lock)
     log "Waiting for PID $pid to end..."
