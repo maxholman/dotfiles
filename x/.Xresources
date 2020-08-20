@@ -56,7 +56,6 @@ URxvt*scrollTtyOutput: false
 ! default letter spacing is too big
 URxvt.letterSpace: -1
 
-
 ! scroll in relation to buffer (with mouse scroll or Shift+Page Up)
 URxvt*scrollWithBuffer: true
 
@@ -66,12 +65,14 @@ URxvt*scrollTtyKeypress: true
 ! Disable printing the terminal contents when pressing PrintScreen.
 URxvt.print-pipe: "cat > /dev/null"
 
+URxvt.saveLines: 20000
+
 URxvt.url-launcher: /usr/bin/xdg-open
 URxvt.matcher.button: 1
 
 URxvt.matcher.rend.0: Uline Bold fg5
 
-URxvt*font: xft:Noto Sans Mono:size=11,xft:Noto Emoji:size=11
+URxvt*font: xft:Noto Sans Mono:size=11, xft:Noto Emoji:size=11, xft:DejaVu Sans:pixelsize=18
 URxvt.allow_bold: true
 
 URxvt.perl-ext-common: default,matcher,selection-to-clipboard,font-size
@@ -133,4 +134,8 @@ URxvt.keysym.C-Right: \033[1;5C
 !*.colorUL:
 
 
+!Xft.dpi: 168
 Xft.dpi: 96
+
+*TkTheme: clam
+

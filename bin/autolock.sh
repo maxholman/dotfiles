@@ -2,7 +2,7 @@
 
 set -eu
 
-logfile=~/autolock.log
+logfile=~/.autolock.log
 
 pushd `dirname $0` > /dev/null
 
@@ -54,10 +54,10 @@ case "$cmd" in
 
     # Fork both i3lock and its monitor to avoid blocking xautolock.
     #i3lock --ignore-empty-password --beep --inactivity-timeout=10 --image="$XDG_CONFIG_HOME/i3/i3lock-img" --nofork &
-    lock.sh
+    ./lock.sh
 
     pid=$(pidof i3lock)
-    log "Waiting for PID $pid to end..."
+    log "Waiting for PID(s) $pid to end..."
     while 2>/dev/null kill -0 "$pid"; do
       sleep 1
     done
@@ -70,11 +70,7 @@ case "$cmd" in
     locked && exit
 
     log "Sending notification."
-    # grep finds either Xautolock.notify or Xautolock*notify
-    secs="$(xrdb -query | grep -m1 '^Xautolock.notify' | cut -f2)"
-    test -n "$secs" && secs="Locking in $secs seconds"
-
-    notify-send --urgency="normal" --app-name="xautolock" -- "Screen Lock" "$secs"
+    notify-send --urgency="normal" --app-name="xautolock" -- "Screen will lock shortly..."
     ;;
 
   suspend)

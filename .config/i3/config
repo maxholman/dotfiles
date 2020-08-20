@@ -49,31 +49,34 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
+set $ws0 "0:Personal"
 set $ws1 "1:Personal"
 set $ws2 "2:Personal"
-set $ws3 "3:NullLines"
-set $ws4 "4:NullLines"
-set $ws5 "5:Messaging"
 
-set $ws6 "6:Scratch"
+set $ws3 "3:Work"
+set $ws4 "4:Work"
+
+set $ws5 "5:Hack"
+set $ws6 "6:Hack"
+
 set $ws7 "7:Scratch"
 set $ws8 "8:Scratch"
-set $ws8 "9:Scratch"
-set $ws8 "0:Scratch"
+
+set $ws9 "9:Messaging"
 
 set $panel eDP-1
 set $monitor DP-1
 
+workspace $ws0 output $monitor
 workspace $ws1 output $monitor
 workspace $ws2 output $monitor
 workspace $ws3 output $monitor
 workspace $ws4 output $monitor
 workspace $ws5 output $monitor
 workspace $ws6 output $monitor
-workspace $ws7 output $monitor
-workspace $ws8 output $monitor
-workspace $ws9 output $monitor
-workspace $ws0 output $monitor
+workspace $ws7 output $panel
+workspace $ws8 output $panel
+workspace $ws9 output $panel
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -107,8 +110,18 @@ bindsym Ctrl+Mod1+Down workspace next_on_output
 
 for_window [window_role="^browser"] border none
 for_window [class="(?i)pamac"] floating enable
+
 # browser pop-ups
 for_window [window_role="pop-up"] floating enable
+
+for_window [instance="sun-awt-X11-XDialogPeer"] floating enable, border none
+for_window [title="^Android Emulator - "] resize set 830 1550
+
+#intellij window focus issue
+for_window [class="^jetbrains-.+"][window_type=dialog] focus
+
+# burpsuite
+# for_window [class="^burp-.+"][title=" "] floating enable
 
 # dont move the mouse for me!
 mouse_warping none
@@ -130,27 +143,30 @@ mode "resize" {
   bindsym Down resize grow height 1 px or 1 ppt
   bindsym Up resize shrink height 1 px or 1 ppt
   bindsym Right resize grow width 1 px or 1 ppt
-  
+
   bindsym Shift+Left resize shrink width 10 px or 10 ppt
   bindsym Shift+Down resize grow height 10 px or 10 ppt
   bindsym Shift+Up resize shrink height 10 px or 10 ppt
   bindsym Shift+Right resize grow width 10 px or 10 ppt
-  
+
   # back to normal
   bindsym Return mode "default"
   bindsym Escape mode "default"
   bindsym $mod+r mode "default"
 }
 
-# Locking
-bindsym Control+Mod1+Delete exec --no-startup-id ~/.dotfiles/bin/lock.sh
-bindsym $mod+l exec --no-startup-id ~/.dotfiles/bin/lock.sh
+# move all floating windows to the scratchpad
+bindsym $mod+minus scratchpad show
+bindsym $mod+Shift+minus move scratchpad
+
 
 # screenshots a selection
-bindsym --release Control+Shift+Print exec "maim -s | xclip -selection clipboard -t image/png"
+bindsym --release Control+Shift+Print exec "maim -s | xclip -selection clipboard -t image/png && notify-send Clipboarded"
+
+bindsym --release Control+Shift+Mod1+Sys_Req exec "export FILENAME=screenshot-selection-$(date +%Y-%m-%d-%H:%M:%S).png && maim -s ~/Pictures/$FILENAME && notify-send 'Saved'"
 
 # all screen(s) to file - print is actually SysReq when alt is pressed
-bindsym --release Mod1+Sys_Req exec "maim ~/Pictures/screenshot-$(date +%Y-%m-%d-%H:%M:%S).png"
+bindsym --release Mod1+Sys_Req exec "export FILENAME=screenshot-$(date +%Y-%m-%d-%H:%M:%S).png && maim ~/Pictures/screenshot-$(date +%Y-%m-%d-%H:%M:%S).png && notify-send Screenshot 'Saved to $FILENAME'"
 
 # Display a workspace bar
 bar {
@@ -190,7 +206,7 @@ client.unfocused  #3f3f3f #3F3F3F $foreground #3f3f3f
 client.urgent   #dca3a3 #dca3a3 $urgent #3f3f3f
 
 # Video related
-exec --no-startup-id compton --config ~/.dotfiles/x/compton.conf -b
+exec --no-startup-id compton # --config ~/.dotfiles/x/compton.conf -b
 exec --no-startup-id xrandr --output DP-1 --primary --auto
 # exec --no-startup-id xrandr --output eDP-1 --off
 
@@ -200,8 +216,15 @@ exec --no-startup-id pasystray &
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet &
 
+
+# Manual Locking
+bindsym $mod+l exec --no-startup-id exec xset s activate dpms force suspend
+
 # Auto lock
-exec --no-startup-id xautolock -secure -time 15 -locker '~/.dotfiles/bin/autolock.sh' &
+# exec --no-startup-id xautolock -secure -time 15 -locker '~/.dotfiles/bin/autolock.sh lock' -notifier '~/.dotfiles/bin/autolock.sh notify' -corners ++++ -cornerdelay 5 -detectsleep &
+#exec --no-startup-id xss-lock -l -n '~/.dotfiles/bin/autolock.sh notify' '~/.dotfiles/bin/autolock.sh lock'
+exec --no-startup-id xss-lock -n /usr/lib/xsecurelock/dimmer -l -- xsecurelock
+
 
 # Wallpaper
 exec --no-startup-id feh --bg-scale ~/Pictures/wallpaper.jpg

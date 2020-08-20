@@ -4,6 +4,8 @@ Host github.com
   PreferredAuthentications publickey
   IdentitiesOnly true
   IdentityFile ~/.ssh/github
+  ControlMaster auto
+  ControlPersist 120
 
 Host bitbucket.org
   HostName bitbucket.org
@@ -14,9 +16,15 @@ Host bitbucket.org
   # bitbucket doesnt like this
   ControlPath none
 
-Host github.com
-  ControlMaster auto
-  ControlPersist 120
+Host gitlab.com
+  HostName gitlab.com
+  User git
+  IdentitiesOnly true
+  PreferredAuthentications publickey
+  IdentityFile ~/.ssh/gitlab
+
+Host *.tunnelpoint.n7s.io
+  ControlPath none
 
 Host *
   # Always use SSH2.
