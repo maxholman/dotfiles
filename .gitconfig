@@ -21,3 +21,7 @@ default = simple
 [gui]
 fontui = -family \"Noto Sans\" -size 10 -weight normal -slant roman -underline 0 -overstrike 0
 fontdiff = -family \"Noto Sans Mono\" -size 10 -weight normal -slant roman -underline 0 -overstrike 0
+[pull]
+	rebase = false
+[init]
+	defaultBranch = master

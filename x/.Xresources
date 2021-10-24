@@ -18,37 +18,6 @@
 #define dwht #a89984
 #define wht  #ebdbb2
 
-rXautolock.time: 30
-rXautolock.locker: $HOME/.dotfiles/i3/autolock.sh lock
-rXautolock.killtime: 30
-rXautolock.killer: $HOME/.dotfiles/i3/autolock.sh suspend
-rXautolock.notify: 30
-rXautolock.notifier: $HOME/.dotfiles/i3/autolock.sh notify
-rXautolock.detectsleep: true
-rXautolock.secure: true
-rXautolock.noclose: true
-
-/* rofi */
-rofi.font:            Noto Sans  24
-rofi.terminal:        urxvt
-rofi.columns:         3
-rofi.eh:              1
-rofi.padding:         400
-rofi.fullscreen:      true
-rofi.opacity:         75
-rofi.bw:              0
-rofi.sidebar-mode:    false
-rofi.separator-style: none
-rofi.hide-scrollbar:  true
-rofi.color-enabled:   true
-rofi.line-margin:     5
-
-!                  bg, border, separator
-rofi.color-window: #88000000, #00000000, #00000000
-
-! bg, fg, bg-alt, hl-bg, hl-fg
-rofi.color-normal: #00000000, #ffffff, #00000000, #00000000, #6d9df1
-
 
 ! do not scroll with output
 URxvt*scrollTtyOutput: false
@@ -80,6 +49,8 @@ URxvt.scrollBar: false
 
 URxvt.cutchars: "\"(),<>[]{}|'`"
 
+
+
 !Disables Ctrl+Shift shortcut for ISO14755
 URxvt.iso14755: false
 
@@ -87,6 +58,8 @@ URxvt.keysym.C-Up:    \033[1;5A
 URxvt.keysym.C-Down:  \033[1;5B
 URxvt.keysym.C-Left:  \033[1;5D
 URxvt.keysym.C-Right: \033[1;5C
+
+URxvt*termName: rxvt-unicode
 
 !
 ! Generated with :
@@ -136,6 +109,7 @@ URxvt.keysym.C-Right: \033[1;5C
 
 !Xft.dpi: 168
 Xft.dpi: 96
+!Xft.dpi: 185
 
 *TkTheme: clam
 

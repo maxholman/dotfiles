@@ -1,0 +1,1 @@
+KERNEL=="card0", SUBSYSTEM=="drm", ACTION=="change", RUN+="/home/mholman/.dotfiles/bin/autorandr.sh"

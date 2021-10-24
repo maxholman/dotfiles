@@ -1,0 +1,6 @@
+# %wheel         ALL=(ALL)       NOPASSWD:SETENV:/usr/bin/docker
+# %wheel         ALL=(ALL)       NOPASSWD:SETENV:/usr/local/bin/docker-compose
+
+
+
+
