@@ -124,6 +124,9 @@ for_window [class="^jetbrains-.+"][window_type=dialog] focus
 # burpsuite
 # for_window [class="^burp-.+"][title=" "] floating enable
 
+# chrome live captions
+for_window [title="^Live Caption$"] floating enable
+
 # dont move the mouse for me!
 mouse_warping none
 
