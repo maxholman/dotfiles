@@ -38,15 +38,17 @@ battery all {
 }
 
 memory {
-  format = "<b>MEM:</b> %available / %used"
-  format_degraded = "<b>LOW MEM %available</b>"
+  memory_used_method = "memavailable"
+  # format = "<b>MEM:</b> %percentage_used used, %percentage_free free, %percentage_shared shared"
+  format = "<b>MEM:</b> %available (%percentage_available)"
+  #format_degraded = "<b>LOW %percentage_used used, %percentage_free free, %percentage_shared shared</b>"
   threshold_degraded = "4096M"
   threshold_critical = "2048M"
 }
 
 tztime local {
-  format = "<b>%time</b>"
-  format_time = "%Y-%m-%d %H:%M:%S"
+  # format = "<b>%time</b>"
+  format = "<b>%Y-%m-%d %H:%M:%S</b>"
 }
 
 load {
