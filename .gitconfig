@@ -1,27 +1,30 @@
 [user]
-name = Max Holman
-email = max@holmn.com
+	name = Max Holman
+	email = max@holmn.com
 
 [github]
-user = maxholman
+	user = maxholman
 
-[core]
-excludesfile = ~/.gitignore_global
-editor = vim
-
-[alias]
-st = status
-
-[color]
-ui = auto
-
-[push]
-default = simple
-
-[gui]
-fontui = -family \"Noto Sans\" -size 10 -weight normal -slant roman -underline 0 -overstrike 0
-fontdiff = -family \"Noto Sans Mono\" -size 10 -weight normal -slant roman -underline 0 -overstrike 0
-[pull]
-	rebase = false
 [init]
 	defaultBranch = master
+
+[core]
+	excludesfile = ~/.gitignore_global
+	editor = vim
+
+[alias]
+	st = status
+
+[color]
+	ui = auto
+
+[push]
+	default = simple
+
+[pull]
+	rebase = false
+
+[gui]
+	fontui = -family \"Noto Sans\" -size 10 -weight normal -slant roman -underline 0 -overstrike 0
+	fontdiff = -family \"Noto Sans Mono\" -size 10 -weight normal -slant roman -underline 0 -overstrike 0
+	usettk = 0

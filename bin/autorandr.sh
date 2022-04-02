@@ -1,11 +1,11 @@
 #!/bin/sh
 
 PANEL_DEVICE=eDP-1
-PANEL_DEVICE_MODE=1920x1080 # $(head -n 1 < /sys/class/drm/card0-${PANEL_DEVICE}/modes)
+PANEL_DEVICE_MODE=2560x1600 # $(head -n 1 < /sys/class/drm/card0-${PANEL_DEVICE}/modes)
 
-EXTERNAL_DEVICE=DP-1
-EXTERNAL_DEVICE_STATUS=$(cat /sys/class/drm/card0-${EXTERNAL_DEVICE}/status)
-EXTERNAL_DEVICE_MODE=$(head -n 1 < /sys/class/drm/card0-${EXTERNAL_DEVICE}/modes)
+EXTERNAL_DEVICE=DP-1-6
+EXTERNAL_DEVICE_STATUS=$(cat /sys/class/drm/card1-DP-6/status)
+EXTERNAL_DEVICE_MODE=$(head -n 1 < /sys/class/drm/card1-DP-6/modes)
 
 export DISPLAY=:0
 export XAUTHORITY=/home/mholman/.Xauthority

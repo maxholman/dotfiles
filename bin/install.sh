@@ -15,29 +15,29 @@ fi
 ln -sf ${INSTALL_DIR}/.profile ~
 ln -sf ${INSTALL_DIR}/bash/.rc ~/.bashrc
 
-# git
-ln -sf ${INSTALL_DIR}/git/.gitconfig ~
+# various
+ln -sf ${INSTALL_DIR}/.gitconfig ~
+ln -sf ${INSTALL_DIR}/.gitignore_global ~
+ln -sf ${INSTALL_DIR}/.vim ~
+ln -sf ${INSTALL_DIR}/.vimrc ~
+ln -sf ${INSTALL_DIR}/.gtkrc-2.0 ~
 
 # i3 and friends
-ln -sf ${INSTALL_DIR}/i3/config ~/.config/i3
-ln -sf ${INSTALL_DIR}/picom/config ~/.config/picom
-ln -sf ${INSTALL_DIR}/rofi/config.rasi ~/.config/rofi
+ln -sf ${INSTALL_DIR}/.config/dunst ~/.config/dunst
+ln -sf ${INSTALL_DIR}/.config/git ~/.config/git
+ln -sf ${INSTALL_DIR}/.config/gtk-3.0 ~/.config/gtk-3.0
+ln -sf ${INSTALL_DIR}/.config/i3 ~/.config/i3
+ln -sf ${INSTALL_DIR}/.config/i3status ~/.config/i3status
+ln -sf ${INSTALL_DIR}/.config/picom ~/.config/picom
+ln -sf ${INSTALL_DIR}/.config/rofi ~/.config/rofi
+ln -sf ${INSTALL_DIR}/.config/redshift ~/.config/redshift
 
 # X
-ln -sf ${INSTALL_DIR}/x/.xsessionrc ~
 ln -sf ${INSTALL_DIR}/x/.Xresources ~
 
 # vim
 ln -sf ${INSTALL_DIR}/.vimrc ~
 
-# dunst
-mkdir -p ~/.config/dunst/
-ln  -sf ${INSTALL_DIR}/x/dunstrc ~/.config/dunst/dunstrc
-
 # ssh
 mkdir -p ~/.ssh/control
 ln -sf ${INSTALL_DIR}/ssh/config ~/.ssh/config
-
-# sudoers
-sudo cp ${INSTALL_DIR}/sudoers.d/* /etc/sudoers.d
-sudo chmod 0400 /etc/sudoers.d/*
