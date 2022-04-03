@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 set -e
-#set -x
 
 INSTALL_DIR=~/.dotfiles
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
@@ -12,15 +11,14 @@ if [ "$DIR" != "$INSTALL_DIR" ]; then
 fi
 
 # bash
-ln -sf ${INSTALL_DIR}/.profile ~
-ln -sf ${INSTALL_DIR}/bash/.rc ~/.bashrc
+ln -sf ${INSTALL_DIR}/.bashrc ~
 
 # various
 ln -sf ${INSTALL_DIR}/.gitconfig ~
 ln -sf ${INSTALL_DIR}/.gitignore_global ~
+ln -sf ${INSTALL_DIR}/.gtkrc-2.0 ~
 ln -sf ${INSTALL_DIR}/.vim ~
 ln -sf ${INSTALL_DIR}/.vimrc ~
-ln -sf ${INSTALL_DIR}/.gtkrc-2.0 ~
 
 # i3 and friends
 ln -sf ${INSTALL_DIR}/.config/dunst ~/.config/dunst
@@ -33,11 +31,9 @@ ln -sf ${INSTALL_DIR}/.config/rofi ~/.config/rofi
 ln -sf ${INSTALL_DIR}/.config/redshift ~/.config/redshift
 
 # X
-ln -sf ${INSTALL_DIR}/x/.Xresources ~
-
-# vim
-ln -sf ${INSTALL_DIR}/.vimrc ~
+ln -sf ${INSTALL_DIR}/.xinitrc ~
+ln -sf ${INSTALL_DIR}/.Xresources ~
 
 # ssh
 mkdir -p ~/.ssh/control
-ln -sf ${INSTALL_DIR}/ssh/config ~/.ssh/config
+ln -sf ${INSTALL_DIR}/.ssh/config ~/.ssh/config

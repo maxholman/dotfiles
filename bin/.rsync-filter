@@ -4,7 +4,6 @@
 - .next
 - .webpack
 - .serverless
-- .git
 - .cache
 - .terraform
 - out

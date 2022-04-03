@@ -1,14 +1,11 @@
 * {
     foreground:                  #f8f8f2;
-    background:                  #282a36cc;
+    background:                  #111111dd;
 
     active-background: #6272a4;
     urgent-background: #ff5555;
 
-    spacing:                     5;
-
     transparent: rgba ( 0, 0, 0, 0 % );
-    random: rgba ( 255, 255, 0, 50 % );
 
     selected-background: @active-background;
     selected-urgent-background: @urgent-background;
