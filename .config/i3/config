@@ -115,7 +115,8 @@ for_window [class="(?i)pamac"] floating enable
 for_window [window_role="pop-up"] floating enable
 
 for_window [instance="sun-awt-X11-XDialogPeer"] floating enable, border none
-for_window [title="^Android Emulator - "] resize set 830 1550
+for_window [title="^Android Emulator - *"] floating enable, resize set 830 1550
+
 
 #intellij window focus issue
 # for_window [class="^jetbrains-.+"][window_type=dialog] focus
@@ -164,12 +165,12 @@ bindsym $mod+Shift+minus move scratchpad
 
 
 # screenshots a selection
-bindsym --release Control+Shift+Print exec "maim -s | xclip -selection clipboard -t image/png && notify-send Clipboarded"
+bindsym --release Control+Shift+Print exec "maim -s | xclip -selection clipboard -t image/png && notify-send Selection Clipboarded"
 
-bindsym --release Control+Shift+Mod1+Sys_Req exec "export FILENAME=screenshot-selection-$(date +%Y-%m-%d-%H:%M:%S).png && maim -s ~/Pictures/$FILENAME && notify-send 'Saved'"
+bindsym --release Control+Shift+Mod1+Sys_Req exec "export FILENAME=screenshot-selection-$(date +%Y-%m-%d-%H:%M:%S).png && maim -s ~/Pictures/$FILENAME && notify-send Selection \\"Saved to ${FILENAME}\\""
 
 # all screen(s) to file - print is actually SysReq when alt is pressed
-bindsym --release Mod1+Sys_Req exec "export FILENAME=screenshot-$(date +%Y-%m-%d-%H:%M:%S).png && maim ~/Pictures/screenshot-$(date +%Y-%m-%d-%H:%M:%S).png && notify-send Screenshot 'Saved to $FILENAME'"
+bindsym --release Mod1+Sys_Req exec "export FILENAME=screenshot-$(date +%Y-%m-%d-%H:%M:%S).png && maim ~/Pictures/screenshot-$(date +%Y-%m-%d-%H:%M:%S).png && notify-send Screenshot \\"Saved to ${FILENAME}\\""
 
 # Display a workspace bar
 bar {
@@ -252,5 +253,3 @@ exec --no-startup-id xss-lock -n /usr/lib/xsecurelock/dimmer -l -- xsecurelock
 
 bindsym XF86MonBrightnessUp exec light -A 5
 bindsym XF86MonBrightnessDown exec light -U 5
-
-

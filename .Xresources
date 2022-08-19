@@ -19,6 +19,7 @@
 #define wht  #ebdbb2
 
 
+/* urxvt */
 ! do not scroll with output
 URxvt*scrollTtyOutput: false
 
@@ -44,15 +45,16 @@ URxvt.matcher.rend.0: Uline Bold fg5
 URxvt*font: xft:Noto Sans Mono:size=11, xft:Noto Emoji:size=11, xft:DejaVu Sans:pixelsize=18
 URxvt.allow_bold: true
 
-URxvt.perl-ext-common: default,matcher,selection-to-clipboard,font-size
+URxvt.perl-ext-common: default,matcher,selection-to-clipboard,resize-font
 URxvt.scrollBar: false
 
 URxvt.cutchars: "\"(),<>[]{}|'`"
 
-
-
-!Disables Ctrl+Shift shortcut for ISO14755
+! Restore Ctrl+Shift+(c|v)
+URxvt.keysym.Shift-Control-V: eval:paste_clipboard
+URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
 URxvt.iso14755: false
+URxvt.iso14755_52: false
 
 URxvt.keysym.C-Up:    \033[1;5A
 URxvt.keysym.C-Down:  \033[1;5B
@@ -106,10 +108,7 @@ URxvt*termName: rxvt-unicode
 !*.colorIT:
 !*.colorUL:
 
-
-!Xft.dpi: 168
 Xft.dpi: 96
-!Xft.dpi: 185
 
 *TkTheme: clam
 

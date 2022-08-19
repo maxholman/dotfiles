@@ -15,9 +15,8 @@ rsync -av \
       \
       -F \
       --files-from .rsync-files \
+      -f 'merge .rsync-filter' \
       --recursive \
-      "$@" \
-      \
       "$HOME/" \
       \
       ws1:/media/storage/mholman/ws6"$HOME"

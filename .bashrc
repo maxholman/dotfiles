@@ -1,16 +1,5 @@
-#
-# ~/.bashrc
-#
-
-# safe default
-export NODE_ENV=development
-
 # picom incompatibility - see https://github.com/google/xsecurelock/issues/97
 export XSECURELOCK_COMPOSITE_OBSCURER=0
-
-# we use pommel to populate this var at run time
-# NPM insists it is populated if you have an npmrc file with an env var
-export NPM_TOKEN=its-a-secret-dummy
 
 # =============================================================================
 # If not running interactively, don't do anything
@@ -36,15 +25,31 @@ HISTIGNORE="history:rm"
 
 PATH=$PATH:~/.local/bin
 PATH=$PATH:~/.yarn/bin
-PATH=$PATH:~/.cargo/bin
+
+# android sdk
+export ANDROID_SDK_ROOT=~/Android/Sdk
+PATH=$PATH:$ANDROID_SDK_ROOT/cmdline-tools/latest/bin/
 
 # Terraform
-PATH=$PATH:~/.tfenv/bin
-export TF_PLUGIN_CACHE_DIR="$HOME/.terraform.d/plugin-cache"
+#PATH=$PATH:~/.tfenv/bin
+#export TF_PLUGIN_CACHE_DIR="$HOME/.terraform.d/plugin-cache"
 #complete -C $(which terraform) terraform
 
+#source "$HOME/.cargo/env"
+PATH=$PATH:~/.cargo/bin
+
+#
+# Node + NVM
+#
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-#source "$HOME/.cargo/env"
+# we use pommel to populate this var at run time
+# NPM insists it is populated if you have an npmrc file with an env var
+export NPM_TOKEN=its-a-secret-dummy
+
+# safe default
+export NODE_ENV=development
+
+#####

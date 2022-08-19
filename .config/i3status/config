@@ -6,7 +6,8 @@ general {
 }
 
 # order += "ipv6"
-order += "disk /"
+# order += "disk /"
+order += "cpu_temperature 0"
 order += "wireless _first_"
 order += "ethernet _first_"
 order += "battery all"
@@ -57,4 +58,8 @@ load {
 
 disk "/" {
   format = "%avail"
+}
+
+cpu_temperature 0 {
+  path = "/sys/class/hwmon/hwmon7/temp1_input"
 }
