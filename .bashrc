@@ -38,6 +38,9 @@ PATH=$PATH:$ANDROID_SDK_ROOT/cmdline-tools/latest/bin/
 #source "$HOME/.cargo/env"
 PATH=$PATH:~/.cargo/bin
 
+# Flutter
+PATH=$PATH:~/Projects/personal/flutter/bin
+
 #
 # Node + NVM
 #
