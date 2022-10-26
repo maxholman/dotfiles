@@ -12,7 +12,7 @@ alias egrep='egrep --color=auto'
 alias vi='vim'
 
 PS1='[\u@\h \W]\$ '
-TERMINAL=rxvt-unicode
+TERMINAL=alacritty
 EDITOR=/usr/bin/vim
 
 # append to the history file, don't overwrite it
@@ -52,4 +52,13 @@ export NPM_TOKEN=its-a-secret-dummy
 # safe default
 export NODE_ENV=development
 
-#####
+###### Make sure the current user/path is shown in the terminal title
+# Make sure the current user/path is shown in the terminal title
+case ${TERM} in
+  xterm*|rxvt*|Eterm|alacritty*|aterm|kterm|gnome*)
+     PROMPT_COMMAND=${PROMPT_COMMAND:+$PROMPT_COMMAND; }'printf "\033]0;%s@%s:%s\007" "${USER}" "${HOSTNAME%%.*}" "${PWD/#$HOME/\~}"'
+    ;;
+  screen*)
+    PROMPT_COMMAND=${PROMPT_COMMAND:+$PROMPT_COMMAND; }'printf "\033_%s@%s:%s\033\\" "${USER}" "${HOSTNAME%%.*}" "${PWD/#$HOME/\~}"'
+    ;;
+esac
