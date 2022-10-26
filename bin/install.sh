@@ -20,19 +20,22 @@ ln -sf ${INSTALL_DIR}/.gtkrc-2.0 ~
 ln -sf ${INSTALL_DIR}/.vim ~
 ln -sf ${INSTALL_DIR}/.vimrc ~
 
-# i3 and friends
+# X
+ln -sf ${INSTALL_DIR}/.xinitrc ~
+ln -sf ${INSTALL_DIR}/.Xresources ~
+
+# i3 and wm stuff
 ln -sf ${INSTALL_DIR}/.config/dunst ~/.config/dunst
-ln -sf ${INSTALL_DIR}/.config/git ~/.config/git
 ln -sf ${INSTALL_DIR}/.config/gtk-3.0 ~/.config/gtk-3.0
 ln -sf ${INSTALL_DIR}/.config/i3 ~/.config/i3
 ln -sf ${INSTALL_DIR}/.config/i3status ~/.config/i3status
 ln -sf ${INSTALL_DIR}/.config/picom ~/.config/picom
 ln -sf ${INSTALL_DIR}/.config/rofi ~/.config/rofi
-ln -sf ${INSTALL_DIR}/.config/redshift ~/.config/redshift
 
-# X
-ln -sf ${INSTALL_DIR}/.xinitrc ~
-ln -sf ${INSTALL_DIR}/.Xresources ~
+# other configs
+ln -sf ${INSTALL_DIR}/.config/git ~/.config/git
+ln -sf ${INSTALL_DIR}/.config/redshift ~/.config/redshift
+ln -sf ${INSTALL_DIR}/.config/alacritty ~/.config/alacritty
 
 # ssh
 mkdir -p ~/.ssh/control
