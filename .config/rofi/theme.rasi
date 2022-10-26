@@ -3,11 +3,14 @@
     background:                  #111111dd;
 
     active-background: #6272a4;
+
+    urgent-foreground: #dd0000;
     urgent-background: #ff5555;
 
     transparent: rgba ( 0, 0, 0, 0 % );
 
     selected-background: @active-background;
+    selected-normal-background: @background;
     selected-urgent-background: @urgent-background;
     selected-active-background: @active-background;
     separatorcolor: @active-background;
@@ -86,7 +89,13 @@ mainbox {
 message {
     padding:      1px ;
     border-color: var(separatorcolor);
-    border:       2px dash 0px 0px ;
+    border:       2px dash 0px 0px;
+    background-color: @transparent;
+}
+
+error-message {
+    text-color: @urgent-foreground;
+    background-color: @transparent;
 }
 
 textbox {
@@ -100,7 +109,7 @@ listview {
     background-color: @transparent;
     spacing:      20px;
     fixed-height: 0;
-    
+
     columns: 3;
 }
 
@@ -126,7 +135,6 @@ button {
 
 button selected {
     background-color: var(selected-normal-background);
-    text-color:       var(selected-normal-foreground);
 }
 
 num-filtered-rows {
