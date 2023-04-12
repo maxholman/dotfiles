@@ -61,5 +61,5 @@ disk "/" {
 }
 
 cpu_temperature 0 {
-  path = "/sys/class/hwmon/hwmon7/temp1_input"
+  path = "/sys/bus/acpi/devices/LNXTHERM\:00/thermal_zone/temp"
 }

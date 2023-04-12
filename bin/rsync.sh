@@ -4,13 +4,18 @@ trap popd EXIT
 pushd "$PWD" || exit
 cd "$(dirname "$0")" || exit
 
+SRC=$HOME
+
+DEST_HOST=
+DEST_PATH=
+
 rsync -av \
       -e ssh \
       --partial \
       --delete \
       --delete-excluded \
-      --inplace \
       --progress \
+      --dry-run \
       --prune-empty-dirs \
       \
       -F \
@@ -19,5 +24,4 @@ rsync -av \
       --recursive \
       "$HOME/" \
       \
-      ws1:/media/storage/mholman/ws6"$HOME"
-
+      "${DEST_HOST}:${DEST_PATH}"

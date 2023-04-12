@@ -12,3 +12,7 @@ font:
     y: 1
 
 live_config_reload: true
+
+# https://wiki.archlinux.org/title/Alacritty#Terminal_functionality_unavailable_in_remote_shells
+#env:
+#  TERM: xterm-256color

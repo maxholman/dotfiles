@@ -36,7 +36,14 @@ ln -sf ${INSTALL_DIR}/.config/rofi ~/.config/rofi
 ln -sf ${INSTALL_DIR}/.config/git ~/.config/git
 ln -sf ${INSTALL_DIR}/.config/redshift ~/.config/redshift
 ln -sf ${INSTALL_DIR}/.config/alacritty ~/.config/alacritty
+ln -sf ${INSTALL_DIR}/.config/autorandr ~/.config/autorandr
+ln -sf ${INSTALL_DIR}/.config/autorandr /etc/xdg/autorandr
 
 # ssh
 mkdir -p ~/.ssh/control
 ln -sf ${INSTALL_DIR}/.ssh/config ~/.ssh/config
+
+# systemd
+ln -sf ${INSTALL_DIR}/.config/systemd ~/.config/systemd
+
+gsettings set org.gnome.desktop.interface color-scheme prefer-dark
