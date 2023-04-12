@@ -4,7 +4,7 @@ trap popd EXIT
 pushd "$PWD" || exit
 cd "$(dirname "$0")" || exit
 
-SRC=$HOME
+SRC=${HOME}/
 
 DEST_HOST=
 DEST_PATH=
@@ -15,13 +15,12 @@ rsync -av \
       --delete \
       --delete-excluded \
       --progress \
-      --dry-run \
       --prune-empty-dirs \
       \
       -F \
       --files-from .rsync-files \
       -f 'merge .rsync-filter' \
       --recursive \
-      "$HOME/" \
+      "${SRC}" \
       \
       "${DEST_HOST}:${DEST_PATH}"
