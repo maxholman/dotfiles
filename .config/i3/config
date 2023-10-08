@@ -182,8 +182,9 @@ bar {
 
   position top
 
-  status_command ~/.dotfiles/bin/i3status.sh
+  # status_command ~/.dotfiles/bin/i3status.sh
   # status_command SCRIPT_DIR=~/.dotfiles/i3/i3blocks-contrib i3blocks -c ~/.dotfiles/i3/i3blocks.conf 2>~/i3blocks.log
+  status_command SCRIPT_DIR=/usr/lib/i3blocks i3blocks
 
   tray_output primary
 
