@@ -3,11 +3,11 @@
 set -e
 
 INSTALL_DIR=~/.dotfiles
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # .dotfiles main
 if [ "$DIR" != "$INSTALL_DIR" ]; then
-    ln -Tsf ${DIR} ${INSTALL_DIR}
+  ln -Tsf ${DIR} ${INSTALL_DIR}
 fi
 
 # bash
