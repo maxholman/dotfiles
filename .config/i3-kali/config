@@ -1,0 +1,205 @@
+set $mod Mod4
+font pango: Noto Sans 10
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# start a terminal
+# bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec alacritty
+
+# kill focused window
+bindsym $mod+Shift+q kill
+
+# start a program launcher
+bindsym $mod+d exec --no-startup-id rofi -show drun
+
+# change focus
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $mod+h split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# Define names for default workspaces for which we configure key bindings later on.
+set $ws0 "0:init"
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+
+
+# switch to workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws0
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws0
+
+bindsym Ctrl+Shift+Mod1+Up move container to workspace prev_on_output; workspace prev_on_output
+bindsym Ctrl+Shift+Mod1+Down move container to workspace next_on_output; workspace next_on_output
+
+bindsym Ctrl+Mod1+Up workspace prev_on_output
+bindsym Ctrl+Mod1+Down workspace next_on_output
+
+for_window [window_role="^browser"] border none
+for_window [class="^(?i)firefox"] border none
+for_window [class="(?i)pamac"] floating enable
+
+# browser pop-ups
+for_window [window_role="pop-up"] floating enable
+
+for_window [instance="sun-awt-X11-XDialogPeer"] floating enable, border none
+for_window [title="^Android Emulator - *"] floating enable, resize set 830 1550
+
+#intellij window focus issue
+# for_window [class="^jetbrains-.+"][window_type=dialog] focus
+
+# burpsuite
+# for_window [class="^burp-.+"][title=" "] floating enable
+
+# chrome live captions
+for_window [title="^Live Caption$"] floating enable
+
+# dont move the mouse for me!
+mouse_warping none
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Exit i3?' -b 'EXIT' 'i3-msg exit'"
+
+# resize window (you can also use the mouse for that)
+bindsym $mod+r mode "resize"
+mode "resize" {
+
+  bindsym Left resize shrink width 1 px or 1 ppt
+  bindsym Down resize grow height 1 px or 1 ppt
+  bindsym Up resize shrink height 1 px or 1 ppt
+  bindsym Right resize grow width 1 px or 1 ppt
+
+  bindsym Shift+Left resize shrink width 10 px or 10 ppt
+  bindsym Shift+Down resize grow height 10 px or 10 ppt
+  bindsym Shift+Up resize shrink height 10 px or 10 ppt
+  bindsym Shift+Right resize grow width 10 px or 10 ppt
+
+  # back to normal
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+  bindsym $mod+r mode "default"
+}
+
+# move all floating windows to the scratchpad
+bindsym $mod+minus scratchpad show
+bindsym $mod+Shift+minus move scratchpad
+
+# Display a workspace bar
+bar {
+
+  position top
+
+  status_command SCRIPT_DIR=/usr/lib/i3blocks i3blocks
+
+  tray_output primary
+
+  # set_from_resource $background background
+  # set_from_resource $foreground foreground
+  # set_from_resource $primary color12
+  # set_from_resource $bright color2
+  # set_from_resource $light color8
+  # set_from_resource $urgent color1
+
+  colors {
+
+    # background $background
+    # statusline $foreground
+    # separator $light
+
+    # # border, background, text
+    # focused_workspace  $primary $background $primary
+    # active_workspace   $primary $background $primary
+    # inactive_workspace $light $background $foreground
+    # urgent_workspace   $urgent $background $urgent
+
+    background #282A36
+    statusline #F8F8F2
+    separator  #44475A
+
+    focused_workspace  #44475A #44475A #F8F8F2
+    active_workspace   #282A36 #44475A #F8F8F2
+    inactive_workspace #282A36 #282A36 #BFBFBF
+    urgent_workspace   #FF5555 #FF5555 #F8F8F2
+    binding_mode       #FF5555 #FF5555 #F8F8F2
+
+  }
+}
+
+# # class, border, bg, text, indicator, child_border
+# client.focused  $primary $primary $background #ffcfaf
+# client.focused_inactive   #3f3f3f #3F3F3F $foreground #3f3f3f
+# client.unfocused  #3f3f3f #3F3F3F $foreground #3f3f3f
+# client.urgent   #dca3a3 #dca3a3 $urgent #3f3f3f
+
+# class                 border  bground text    indicator child_border
+client.focused          #6272A4 #6272A4 #F8F8F2 #6272A4   #6272A4
+client.focused_inactive #44475A #44475A #F8F8F2 #44475A   #44475A
+client.unfocused        #282A36 #282A36 #BFBFBF #282A36   #282A36
+client.urgent           #44475A #FF5555 #F8F8F2 #FF5555   #FF5555
+client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
+
+client.background       #F8F8F2
