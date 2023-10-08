@@ -64,19 +64,25 @@ set $ws8 "8:Scratch"
 
 set $ws9 "9:Messaging"
 
+# discrete
+set $panel eDP-1-1
+set $monitor DP-0
+
+# integrated
 # set $panel eDP-1
 # set $monitor DP-1
 
-# workspace $ws0 output $monitor
-# workspace $ws1 output $monitor
-# workspace $ws2 output $monitor
-# workspace $ws3 output $monitor
-# workspace $ws4 output $monitor
-# workspace $ws5 output $monitor
-# workspace $ws6 output $monitor
-# workspace $ws7 output $monitor
-# workspace $ws8 output $monitor
-# workspace $ws9 output $monitor
+workspace $ws0 output $monitor
+workspace $ws1 output $monitor
+workspace $ws2 output $monitor
+workspace $ws3 output $monitor
+workspace $ws4 output $monitor
+
+workspace $ws5 output $panel
+workspace $ws6 output $panel
+workspace $ws7 output $panel
+workspace $ws8 output $panel
+workspace $ws9 output $panel
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
