@@ -7,11 +7,14 @@
 - .serverless/**
 - .cache/**
 - .terraform/**
+- .pnpm-store/**
 - .gradle/**
+- .docker/buildx/**
 - .yarn-offline-mirror/**
 - node_modules/**
 - dist/**
 - build/**
+- src-tauri/target/**
 - tmp/**
 - cdk.out/**
 - *.iso
