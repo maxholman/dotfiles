@@ -28,7 +28,6 @@ ln -sf ${INSTALL_DIR}/.Xresources ~
 ln -sf ${INSTALL_DIR}/.config/dunst ~/.config/dunst
 ln -sf ${INSTALL_DIR}/.config/gtk-3.0 ~/.config/gtk-3.0
 ln -sf ${INSTALL_DIR}/.config/i3 ~/.config/i3
-ln -sf ${INSTALL_DIR}/.config/i3status ~/.config/i3status
 ln -sf ${INSTALL_DIR}/.config/i3blocks ~/.config/i3blocks
 ln -sf ${INSTALL_DIR}/.config/picom ~/.config/picom
 ln -sf ${INSTALL_DIR}/.config/rofi ~/.config/rofi
