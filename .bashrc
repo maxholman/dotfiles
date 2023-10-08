@@ -27,8 +27,8 @@ PATH=$PATH:~/.local/bin
 PATH=$PATH:~/.yarn/bin
 
 # android sdk
-export ANDROID_SDK_ROOT=~/Android/Sdk
-PATH=$PATH:$ANDROID_SDK_ROOT/cmdline-tools/latest/bin/
+export ANDROID_HOME=~/Android/Sdk
+PATH=$PATH:$ANDROID_HOME/cmdline-tools/latest/bin/
 
 # Terraform
 #PATH=$PATH:~/.tfenv/bin
