@@ -53,15 +53,13 @@ bindsym $mod+a focus parent
 set $ws0 "0:Personal"
 set $ws1 "1:Personal"
 set $ws2 "2:Personal"
-
 set $ws3 "3:Work"
 set $ws4 "4:Work"
 
-set $ws5 "5:Scratch"
+set $ws5 "5:Work"
 set $ws6 "6:Scratch"
 set $ws7 "7:Scratch"
 set $ws8 "8:Scratch"
-
 set $ws9 "9:Messaging"
 
 # discrete
