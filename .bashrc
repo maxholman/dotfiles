@@ -58,12 +58,12 @@ export NODE_ENV=development
 ###### Make sure the current user/path is shown in the terminal title
 # Make sure the current user/path is shown in the terminal title
 case ${TERM} in
-  xterm*|rxvt*|Eterm|alacritty*|aterm|kterm|gnome*)
-     PROMPT_COMMAND=${PROMPT_COMMAND:+$PROMPT_COMMAND; }'printf "\033]0;%s@%s:%s\007" "${USER}" "${HOSTNAME%%.*}" "${PWD/#$HOME/\~}"'
-    ;;
-  screen*)
-    PROMPT_COMMAND=${PROMPT_COMMAND:+$PROMPT_COMMAND; }'printf "\033_%s@%s:%s\033\\" "${USER}" "${HOSTNAME%%.*}" "${PWD/#$HOME/\~}"'
-    ;;
+xterm* | rxvt* | Eterm | alacritty* | aterm | kterm | gnome*)
+  PROMPT_COMMAND=${PROMPT_COMMAND:+$PROMPT_COMMAND; }'printf "\033]0;%s@%s:%s\007" "${USER}" "${HOSTNAME%%.*}" "${PWD/#$HOME/\~}"'
+  ;;
+screen*)
+  PROMPT_COMMAND=${PROMPT_COMMAND:+$PROMPT_COMMAND; }'printf "\033_%s@%s:%s\033\\" "${USER}" "${HOSTNAME%%.*}" "${PWD/#$HOME/\~}"'
+  ;;
 esac
 
 KUBE_EDITOR="vim"
