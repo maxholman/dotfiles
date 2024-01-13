@@ -1,0 +1,14 @@
+import = ["./dracula.yml"]
+live_config_reload = true
+
+[font]
+size = 11
+
+[font.normal]
+family = "Noto Sans Mono"
+
+[font.offset]
+x = -1
+
+[shell]
+program = "/usr/bin/tmux"
