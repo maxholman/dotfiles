@@ -1,0 +1,4 @@
+Match exec "step-cli ssh check-host --context ca.lab.dc1.holmn.net %h"
+	User max
+	UserKnownHostsFile "/home/mholman/.step/authorities/ca.lab.dc1.holmn.net/ssh/known_hosts"
+	ProxyCommand step-cli ssh proxycommand --context ca.lab.dc1.holmn.net %r %h %p

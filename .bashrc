@@ -12,8 +12,8 @@ alias egrep='egrep --color=auto'
 alias vi='vim'
 
 PS1='[\u@\h \W]\$ '
-TERMINAL=alacritty
-EDITOR=/usr/bin/vim
+# TERMINAL=alacritty
+export EDITOR=/usr/bin/vim
 
 # append to the history file, don't overwrite it
 shopt -s histappend
@@ -21,10 +21,9 @@ shopt -s histappend
 HISTSIZE=20000
 HISTFILESIZE=40000
 HISTCONTROL=ignoreboth:erasedups
-HISTIGNORE="history:rm"
+HISTIGNORE="history:rm:reboot:poweroff:shutdown"
 
 PATH=$PATH:~/.local/bin
-PATH=$PATH:~/.yarn/bin
 
 # android sdk
 export ANDROID_HOME=~/Android/Sdk
@@ -50,7 +49,8 @@ export NVM_DIR="$HOME/.nvm"
 
 # we use pommel to populate this var at run time
 # NPM insists it is populated if you have an npmrc file with an env var
-export NPM_TOKEN=its-a-secret-dummy
+export NPM_TOKEN=LOL
+export GITHUB_TOKEN=LOL
 
 # safe default
 export NODE_ENV=development
@@ -66,8 +66,6 @@ screen*)
   ;;
 esac
 
-KUBE_EDITOR="vim"
-
 export DENO_INSTALL="$HOME/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
 
@@ -78,3 +76,8 @@ case ":$PATH:" in
 *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+# ssh agent
+export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/gcr/ssh
+
+eval "$(zoxide init bash --cmd cd)"

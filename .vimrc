@@ -1,12 +1,11 @@
 syntax on
 filetype plugin on
-color dracula
 
 set nofoldenable
 
 function! ResCur()	" Restore session with cursor in last position inside line
-  if line("'\"") > 1 && line("'\"") <= line('$') 
-    normal! g`"		
+  if line("'\"") > 1 && line("'\"") <= line('$')
+    normal! g`"
     return 1
   endif
 endfunction

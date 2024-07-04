@@ -6,8 +6,9 @@ cd "$(dirname "$0")" || exit
 
 SRC=${HOME}/
 
-DEST_HOST=
-DEST_PATH=
+DEST_USER=max
+DEST_HOST=nas1.svc.dc1.holmn.net
+DEST_PATH=/mnt/primary/enc/homes/max
 
 rsync -av \
   -e ssh \
@@ -23,4 +24,9 @@ rsync -av \
   --recursive \
   "${SRC}" \
   \
-  "${DEST_HOST}:${DEST_PATH}"
+  "${DEST_USER}@${DEST_HOST}:${DEST_PATH}"
+
+# \
+#   --dry-run \
+#   --itemize-changes \
+#   \

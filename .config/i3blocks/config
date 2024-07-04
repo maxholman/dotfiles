@@ -28,7 +28,7 @@ label=TEMP
 interval=3
 #T_WARN=70
 #T_CRIT=90
-SENSOR_CHIP=coretemp-isa-0000
+SENSOR_CHIP=thinkpad-isa-0000
 
 [load_average]
 command=$SCRIPT_DIR/load_average/load_average

@@ -3,5 +3,5 @@ Description=rclone backup
 
 [Service]
 Type=oneshot
-ExecStart=/home/mholman/.dotfiles/bin/rclone.sh
+ExecStart=~/.dotfiles/bin/rclone.sh
 Environment="DEST=backblaze:maxholman-backups"

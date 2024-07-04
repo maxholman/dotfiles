@@ -18,6 +18,21 @@
 - tmp/**
 - cdk.out/**
 - *.iso
+- *.img
+- *.qcow2
+- *.vdi
+
+- Projects/VM
+- *.vmdk
+- *.ova
+- *.vdi
+- *.vbox
+- *.vbox-prev
+- *.vmem
+- *.vmss
+- *.vmx
+- *.vmxf
+
 - *.log
 - *.log.?
 - .git/**
@@ -27,3 +42,5 @@
 - .eclipse/**
 - .local/share/**
 - .config/google-chrome*/**
+
+- data/prometheus/**

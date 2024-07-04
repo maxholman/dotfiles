@@ -6,3 +6,6 @@
 .config/.docker/config.json
 
 servers
+bazel
+
+node_modules
